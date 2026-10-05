@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reho Sciences | Pharmaceutical Innovation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #17324d;
+      background: #f7fbfd;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: white;
+      border-bottom: 1px solid #e2edf2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: #126b73;
+    }
+
+    nav a {
+      color: #426176;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: #126b73;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      padding: 80px 7%;
+      background: linear-gradient(
+        135deg,
+        #edfafd 0%,
+        #ffffff 55%,
+        #eef8f5 100%
+      );
+    }
+
+    .hero-inner {
+      max-width: 1050px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #15828a;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      color: #123b57;
+    }
+
+    .hero p {
+      margin: 25px 0 30px;
+      max-width: 600px;
+      font-size: 1.12rem;
+      color: #557084;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      background: #126b73;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #0d555c;
+    }
+
+    .orb {
+      width: min(360px, 75vw);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 35% 30%,
+        #ffffff 0 10%,
+        #d7f3f0 11% 30%,
+        #a9dedb 31% 55%,
+        #67b9b7 56% 100%
+      );
+      box-shadow: 0 35px 70px rgba(29, 105, 115, 0.18);
+      position: relative;
+    }
+
+    .orb::after,
+    .orb::before {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 50%;
+    }
+
+    .orb::before {
+      inset: 17%;
+      transform: rotate(35deg) scaleX(1.5);
+    }
+
+    .orb::after {
+      inset: 28%;
+      transform: rotate(-45deg) scaleX(1.7);
+    }
+
+    section {
+      padding: 85px 7%;
+    }
+
+    .wrap {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: #15828a;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 2.35rem;
+      margin-bottom: 16px;
+      color: #123b57;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: #61788a;
+      margin-bottom: 35px;
+    }
+
+    .about {
+      background: #edf8f6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e3eef2;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(35, 73, 91, 0.06);
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #174965;
+    }
+
+    .card p {
+      color: #667d8d;
+      font-size: 0.96rem;
+    }
+
+    .contact {
+      background: #123b57;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact p {
+      color: #c9dbe4;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .contact .btn {
+      background: white;
+      color: #126b73;
+    }
+
+    footer {
+      padding: 24px 7%;
+      text-align: center;
+      color: #718898;
+      background: white;
+      font-size: 0.85rem;
+    }
+
+    .prototype {
+      font-size: 0.78rem;
+      color: #8b6d30;
+      background: #fff7df;
+      padding: 7px 11px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand">REHO SCIENCES</div>
+
+    <div>
+      <a href="#about">About</a>
+      <a href="#focus">Focus</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <header class="hero">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="eyebrow">
+          Pharmaceutical Science
+        </div>
+
+        <h1>
+          Advancing health through science.
+        </h1>
+
+        <p>
+          Reho Sciences is a pharmaceutical company focused on
+          exploring innovative solutions in healthcare and
+          pharmaceutical science.
+        </p>
+
+        <a class="btn" href="#about">
+          Discover Reho Sciences
+        </a>
+
+        <div class="prototype">
+          Prototype website
+        </div>
+
+      </div>
+
+
+      <div class="orb"></div>
+
+    </div>
+
+  </header>
+
+
+  <section id="about" class="about">
+
+    <div class="wrap">
+
+      <div class="section-label">
+        About Us
+      </div>
+
+      <h2>
+        Science with purpose.
+      </h2>
+
+      <p class="intro">
+        Reho Sciences is a pharmaceutical company.
+        We aim to build a science-driven organization focused
+        on healthcare and pharmaceutical innovation.
+        More information about our products, research,
+        services and capabilities can be added as the company develops.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="focus">
+
+    <div class="wrap">
+
+      <div class="section-label">
+        Our Focus
+      </div>
+
+      <h2>
+        Building for the future.
+      </h2>
+
+      <p class="intro">
+        These sections are placeholders for the areas
+        Reho Sciences may develop in the future.
+      </p>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="icon">
+            🧬
+          </div>
+
+          <h3>
+            Research & Development
+          </h3>
+
+          <p>
+            A future space for information about research
+            programs, scientific work and innovation.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            💊
+          </div>
+
+          <h3>
+            Products
+          </h3>
+
+          <p>
+            A future catalogue for pharmaceutical products,
+            formulations and other offerings.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            🔬
+          </div>
+
+          <h3>
+            Quality
+          </h3>
+
+          <p>
+            A future section for quality systems,
+            standards, facilities and verified certifications.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact" class="contact">
+
+    <div class="wrap">
+
+      <div class="section-label">
+        Get in Touch
+      </div>
+
+      <h2>
+        Let's build what comes next.
+      </h2>
+
+      <p>
+        Contact details can be added here when
+        Reho Sciences is ready to publish them.
+      </p>
+
+      <a class="btn" href="mailto:contact@rehosciences.com">
+        Contact Reho Sciences
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 Reho Sciences · Prototype
+  </footer>
+
+</body>
+</html>
